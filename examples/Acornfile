@@ -1,9 +1,4 @@
-services: db: {
-	build: {
-		context:   "../"
-		acornfile: "../Acornfile"
-	}
-}
+services: db: image: "ghcr.io/acorn-io/postgres-external:v#.#.#"
 
 containers: nextcloud: {
 	image: "nextcloud"
