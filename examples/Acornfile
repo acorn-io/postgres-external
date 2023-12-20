@@ -1,0 +1,18 @@
+services: db: {
+	build: {
+		context:   "../"
+		acornfile: "../Acornfile"
+	}
+}
+
+containers: nextcloud: {
+	image: "nextcloud"
+	ports: publish: "80/http"
+	consumes: ["db"]
+	env: {
+		POSTGRES_HOST:     "@{service.db.address}"
+		POSTGRES_DB:       "@{service.db.data.dbName}"
+		POSTGRES_USER:     "@{service.db.secrets.admin.username}"
+		POSTGRES_PASSWORD: "@{service.db.secrets.admin.password}"
+	}
+}
