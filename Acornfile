@@ -32,7 +32,7 @@ secrets: config: {
 	}
 	data: {
 		address:       ""
-		port:          ""
+		port:          "5432"
 		adminUsername: ""
 		adminPassword: ""
 		proto:         ""
